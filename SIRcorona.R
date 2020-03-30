@@ -37,7 +37,7 @@ ngath <- c(8,13,1,8,14,17,47,11,18)
 #number who were infected at gathering 
 igath <- c(8,4,1,7,3,2,10,5,8)
 
-cor(igath, ngath) #0,585 
+cor(igath, ngath) #0.585 
 
 mean(igath) #5.33
 
@@ -55,11 +55,11 @@ state <- c(S = .99, I = .01, R = 0, H = 0, V = 0)
 
 SIRcorona <- function(t, state, parameters){
   with(as.list(c(state, parameters)), {
-    dS = -transr*S*I
-    dI =  transr*S*I - recovr*I
-    dR =  recovr*I
-    dH =  hospr*I - recovr*H
-    dV =  ventr*I - recovr*V
+    dS = -transr*S*I #change in suceptibility 
+    dI =  transr*S*I - recovr*I #change in number of infected 
+    dR =  recovr*I #change in number of recovered 
+    dH =  hospr*I - recovr*H #change in the number of hospitalizations 
+    dV =  ventr*I - recovr*V #change in the number of patients on ventalators
     return(list(c(dS, dI, dR, dH, dV)))
   })
 }
@@ -75,7 +75,12 @@ p <- ggplot(out.m, aes(time, value, color = variable)) + geom_point()
 print(p)
 
 
+#finding the % of population will eventually get sick, and the % who will 
+## be hospitalized, be ventalated, and/or die from the virus. 
 
+##the area under the curves will bew the total number... need to modify ODE function the 
+##output a vector to match to a function for numerical answer. will compare to actual 
+## solved ODE?
 
 
 

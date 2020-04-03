@@ -47,10 +47,10 @@ import matplotlib.pyplot as plt
 #creating a vector of parameters???
 
 #transr is transmission rate, or Secondary Rate of Attack
-transr = 5.33
+transr = 3.2
 
 #recovr is recovery rate per time step
-recovr = 1
+recovr = .2
 
 
 

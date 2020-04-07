@@ -27,7 +27,7 @@ library(reshape2)
 # recovr = recovery rate
 
 
-#estimating secondary attack rate 
+###############Estimating secondary attack rate################################################
 #https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30462-1/fulltext
 
 
@@ -41,8 +41,48 @@ cor(igath, ngath) #0.585
 
 mean(igath) #5.33
 
+#the secondary rate of attack is dtermined by (# new infected)/(total # exposed at contact)
+# I am assumeing everyone had the opportunity for exposer at these gatherings 
+tgath <- igath/ngath
+tgath
+mean(tgath) # 0.514
 
-# the ODE...
+#given that these gatherings have SARs that range from 0.21 to 1.0 its likley that the ammount of 
+#actuall contact at the gatherings varies a lot so a much larger dataset is needed. 
+
+#the sample Secondary Attack Rate from this small dataset is 0.514
+#need to add more data form Italy or the US if possible
+
+################################################################################################
+
+
+
+
+##################Estimating Transmission rate##################################################
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5572698/
+
+
+
+
+
+
+##################Estimating Recovery Rate#####################################################
+
+
+
+
+
+##################Estimating R0################################################################
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3935673/
+
+
+
+#################Case Fatality Rate############################################################
+
+
+
+
+###################The SIR model##############################################################
 
 #setting up the time vector
 time <- seq(from=0, to=15, by = 0.01)
